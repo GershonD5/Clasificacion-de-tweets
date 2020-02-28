@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1 class="text-center mb-3">Tweets</h1>
+{% if tweets_list %}
+    {% for tweet in tweets_list %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="lead">{{ tweet.tweet_text }}</p>
+                <a href="{% url 'polls:detail' tweet.id %}" class="btn btn-primary btn-sm">Clasificar</a>
+                <a href="{% url 'polls:results' tweet.id %}" class="btn btn-secondary btn-sm">resultados</a>
+
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No hay tweets disponibles</p>
+
+{% endif %}
+{% endblock %}

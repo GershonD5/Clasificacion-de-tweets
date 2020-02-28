@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<a class="btn btn-secondary btn-sm mb-3" href="{% url 'polls:index' %}">Back To Polls</a>
+<h1 class="text-center mb-3">{{ tweet.tweet_text }}</h1>
+
+{% if error_message %}
+<p class="alert alert-danger">
+	<strong>{{ error_message }}</strong>
+</p>
+{% endif %}
+
+<a class="btn btn-primary" href="{% url 'polls:NoOfensivo' tweet.id  %}">No Ofensivo</a>
+<a class="btn btn-danger" href="{% url 'polls:ofensivo' tweet.id  %}">Ofensivo</a>
+
+
+{% endblock %}
