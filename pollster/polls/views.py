@@ -38,6 +38,7 @@ def ofensivo(request, tweet_id):
     # print(request.POST['choice'])
     tweet = get_object_or_404(Tweet, pk=tweet_id)
     tweet.ofensivo +=1
+    tweet.total +=1
     tweet.save()
     # Always return an HttpResponseRedirect after successfully dealing
     # with POST data. This prevents data from being posted twice if a
@@ -47,8 +48,12 @@ def ofensivo(request, tweet_id):
 def NoOfensivo(request, tweet_id):
     # print(request.POST['choice'])
     tweet = get_object_or_404(Tweet, pk=tweet_id)
-    tweet.No_Ofensivo +=1
+    tweet.total +=1
     tweet.save()
+    return HttpResponseRedirect(reverse('polls:detail', args=(random.randrange(rangoMenor(),rangoMayor(),1),)))
+
+def votar(request):
+    # print(request.POST['choice'])
     return HttpResponseRedirect(reverse('polls:detail', args=(random.randrange(rangoMenor(),rangoMayor(),1),)))
 
 

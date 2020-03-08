@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+   <!-- Inicio Fondo -->
+   <div class="fondo">
+  
+    <div class="container">
+  
+      <div class="row mt-3 mb-3 justify-content-center">
+          <h2>Escoge un tweet para clasificar o ve los resultados</h2>
+      </div>
+  
+      <div class="row mb-5">
+        <!-- Inicio Fila 1  -->
+        {% if tweets_list %}
+            {% for tweet in tweets_list %} 
+        <div class="row m-5">
+          <!-- Card Principal -->
+           
+          <div class="card  m-1" style="width: 20rem; border-radius: 5px; object-fit:none">
+              <div class="col">
+              <label>{{ tweet.tweet_text }}</label>
+              </div>
+            <hr>
+            <div class="card-body">
+              <a href="{% url 'polls:detail' tweet.id %}" type="button"  class="btn btn-secondary">Clasificar</a>
+             
+            </div>
+           
+
+
+          </div>
+          
+
+          
+  
+          <!-- Fin Card -->
+        </div>
+        
+        
+        <!-- Fin Fila 1  -->
+  
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>No hay tweets disponibles</p>
+    {% endif %}
+  </div>
+  <!-- Fin Inicio Fondo -->
+  {% endblock %}

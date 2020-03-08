@@ -3,11 +3,12 @@
 
 <div class="card text-center">
   <div class="card-body">
-    <h1>Bienvenido</h1>
-    <p>Bienvenido a la clasificacion de tweets</p>
-    <a class="btn btn-dark" href="{% url 'polls:index' %}">
-        Ver todos los tweets disponibles</a
-      >
+    <h3>Bienvenido a la clasificación de tweets</h3>
+    <hr>
+    <h4>Instrucciones</h4>
+    <p>A continuación podrás observar diferentes tweets, debes calififcar cada uno de estos como ofensivio o no ofensivo de acuerdo a tu criterio.</p>
+
+    <a class="btn btn-dark" href="{% url 'polls:votar'  %}">Empezar a votar</a>
   </div>
   </div>
 {% endblock %}
